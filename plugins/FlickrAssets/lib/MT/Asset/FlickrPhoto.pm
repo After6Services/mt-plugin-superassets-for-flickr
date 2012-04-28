@@ -34,16 +34,16 @@ sub file_name { shift->label }
 # see http://www.flickr.com/services/api/misc.urls.html
 # size names match the ones in API responses
 our @SIZES = (
-    { name => 'Square',       alias => 'Square 75',  size => 75,   img_suffix => 's' page_suffix => 'sq' },
-    { name => 'Large Square', alias => 'Square 150', size => 150,  img_suffix => 'q' page_suffix => 'q'  },
-    { name => 'Thumbnail',    alias => 'Thumbnail',  size => 100,  img_suffix => 't' page_suffix => 't'  },
-    { name => 'Small',        alias => 'Small 240',  size => 240,  img_suffix => 'm' page_suffix => 's'  },
-    { name => 'Small 320',    alias => 'Small 320',  size => 320,  img_suffix => 'n' page_suffix => 'n'  },
-    { name => 'Medium',       alias => 'Medium 500', size => 500,  img_suffix => ''  page_suffix => 'm'  },
-    { name => 'Medium 640',   alias => 'Medium 640', size => 640,  img_suffix => 'z' page_suffix => 'z'  },
-    { name => 'Medium 800',   alias => 'Medium 800', size => 800,  img_suffix => 'c' page_suffix => 'c'  },
-    { name => 'Large',        alias => 'Large 1024', size => 1024, img_suffix => 'b' page_suffix => 'l'  },
-    { name => 'Original',     alias => 'Original',   size => 9999, img_suffix => 'o' page_suffix => 'o'  },
+    { name => 'Square',       alias => 'Square 75',  size => 75,   img_suffix => 's', page_suffix => 'sq' },
+    { name => 'Large Square', alias => 'Square 150', size => 150,  img_suffix => 'q', page_suffix => 'q'  },
+    { name => 'Thumbnail',    alias => 'Thumbnail',  size => 100,  img_suffix => 't', page_suffix => 't'  },
+    { name => 'Small',        alias => 'Small 240',  size => 240,  img_suffix => 'm', page_suffix => 's'  },
+    { name => 'Small 320',    alias => 'Small 320',  size => 320,  img_suffix => 'n', page_suffix => 'n'  },
+    { name => 'Medium',       alias => 'Medium 500', size => 500,  img_suffix => '',  page_suffix => 'm'  },
+    { name => 'Medium 640',   alias => 'Medium 640', size => 640,  img_suffix => 'z', page_suffix => 'z'  },
+    { name => 'Medium 800',   alias => 'Medium 800', size => 800,  img_suffix => 'c', page_suffix => 'c'  },
+    { name => 'Large',        alias => 'Large 1024', size => 1024, img_suffix => 'b', page_suffix => 'l'  },
+    { name => 'Original',     alias => 'Original',   size => 9999, img_suffix => 'o', page_suffix => 'o'  },
 );
 
 # size of the asset's url, default insert option, etc.
@@ -131,7 +131,7 @@ sub best_size_match {
         }
     }
 
-    return undef;
+    return 'Square';  # the smallest one
 }
 
 sub largest_size {
@@ -176,10 +176,12 @@ sub flickr_image_url {
 # 
 sub flickr_page_url {
     my ($asset, $size) = @_;
-    $size = _size_info($size) if $size;
 
-    # ignoring size context for default image size
-    undef $size if $size->{name} eq $DEFAULT_SIZE;
+    if ($size) {
+        $size = _size_info($size);
+        # ignoring size context for default image size
+        undef $size if $size->{name} eq $DEFAULT_SIZE;
+    }
 
     return sprintf(
         "http://www.flickr.com/photos/%s/%s/%s",
