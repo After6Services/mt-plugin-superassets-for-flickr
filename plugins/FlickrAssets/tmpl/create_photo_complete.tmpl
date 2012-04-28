@@ -1,0 +1,13 @@
+<html>
+<head>
+<script type="text/javascript" src="<mt:var name="static_uri">js/mt_core_compact.js"></script>
+<script type="text/javascript" src="<mt:var name="static_uri">mt.js"></script>
+</head>
+<body>
+<script language="javascript">
+closeDialog();
+//top.window.location = '<mt:CGIPath><mt:AdminScript>?__mode=view&_type=asset&blog_id=<mt:var name="blog_id">&id=<mt:var name="new_asset_id">';
+top.window.location = '<mt:CGIPath><mt:AdminScript>?__mode=list_assets&blog_id=<mt:var name="blog_id">';
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<mt:setvarblock name="title">Add Flickr Photo</mt:setvarblock>
+<mt:setvar name="page_title" value="$title">
+
+<mt:setvarblock name="system_msg">
+    <mt:if name="invalid_photo_url">
+        <mtapp:statusmsg
+            id="invalid_photo_url"
+            class="error">This photo URL doesn't seem to be valid.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="photo_already_exists">
+        <mtapp:statusmsg
+            id="photo_already_exists"
+            class="info">It looks like this photo has already been imported &mdash; <a href='<mt:CGIPath><mt:AdminScript>?__mode=view&_type=asset&blog_id=<mt:var name="blog_id">&id=<mt:var name="original_asset_id">' target="_top">preview photo</a>.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error">
+        <mtapp:statusmsg
+            id="api_error"
+            class="error">Something went wrong with Flickr API calls :(<br>Error message:<br><pre><mt:var name="api_error" escape="html"></pre>
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error_code">
+        <mtapp:statusmsg
+            id="api_error_code"
+            class="error">Flickr API error (code <mt:var name="api_error_code" escape="html">).
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error_not_found">
+        <mtapp:statusmsg
+            id="api_error_not_found"
+            class="error">This photo or the photo owner couldn't be found on Flickr.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error_permission_denied">
+        <mtapp:statusmsg
+            id="api_error_permission_denied"
+            class="error">Flickr API error: The calling user does not have permission to view the photo.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error_invalid_key">
+        <mtapp:statusmsg
+            id="api_error_invalid_key"
+            class="error">Flickr API error: The API key passed was not valid or has expired.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error_service_unavailable">
+        <mtapp:statusmsg
+            id="api_error_service_unavailable"
+            class="error">Flickr API error: The requested service is temporarily unavailable.
+        </mtapp:statusmsg>
+    </mt:if>
+
+    <mt:if name="api_error_invalid_photo_info">
+        <mtapp:statusmsg
+            id="api_error_invalid_photo_info"
+            class="error">Flickr API error: Couldn't get photo information.
+        </mtapp:statusmsg>
+    </mt:if>
+</mt:setvarblock>
+
+<mt:setvarblock name="html_head" append="1">
+<script type="text/javascript">
+TC.attachLoadEvent(function() {
+    var url = getByID("photo_url");
+    if (url) {
+        url.focus();
+    }
+});
+</script>
+</mt:setvarblock>
+
+<mt:include name="dialog/header.tmpl">
+
+<mt:if name="invalid_plugin_config">
+
+<mtapp:statusmsg
+    id="invalid_plugin_config"
+    class="error">Please provide Flickr API key and secret in the Flickr Assets plugin <a href="<mt:CGIPath><mt:AdminScript>?__mode=cfg_plugins" target="_top">settings</a> to enable this feature.
+</mtapp:statusmsg>
+
+<div class="actions-bar">
+    <div class="actions-bar-inner pkg actions">
+    <button
+        onclick="closeDialog(); return false"
+        type="submit"
+        class="primary-button"
+        accesskey="x"
+        title="Close (x)">Close</button>
+    </div>
+</div>
+
+<mt:else>
+
+<$mt:var name="system_msg"$>
+
+<form method="post" action="<mt:var name="script_url">" name="flickr_photo_create" id="flickr_photo_create">
+    <input type="hidden" name="__mode" value="flickr_photo_create" />
+    <input type="hidden" name="blog_id" value="<mt:var name="blog_id">" />
+    <input type="hidden" name="type" value="<mt:var name="type">" />
+    <input type="hidden" name="continue_args" value="<mt:var name="continue_args" escape="html">" />
+    <input type="hidden" name="no_insert" value="<mt:var name="no_insert" escape="html">" />
+    <input type="hidden" name="submit" value="1" />
+    <input type="hidden" name="magic_token" value="<mt:var name="magic_token">" />
+
+    <mtapp:setting
+        id="photo_url"
+        label="Photo URL"
+        label_class="top-label"
+        hint="Flickr photo address, e.g. http://www.flickr.com/photos/user/12345/."
+        show_hint="1">
+        <input type="text" name="photo_url" id="photo_url" value="<mt:var name="photo_url" escape="html">" style="width: 99%" />
+    </mtapp:setting>
+
+    <div class="actions-bar">
+        <div class="actions-bar-inner pkg actions">
+        <button
+            type="submit"
+            accesskey="a"
+            class="primary-button"
+            title="Add (a)">Add</button>
+        <button
+            onclick="closeDialog(); return false"
+            type="submit"
+            class="cancel"
+            accesskey="x"
+            title="Cancel (x)">Cancel</button>
+        </div>
+    </div>
+</form>
+
+</mt:if>
+
+<mt:include name="dialog/footer.tmpl">

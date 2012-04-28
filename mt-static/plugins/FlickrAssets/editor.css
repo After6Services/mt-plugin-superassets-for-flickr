@@ -1,0 +1,17 @@
+#editor-content-toolbar {
+    padding: 6px 8px 6px 8px;
+}
+
+.editor-toolbar a.button {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.editor-toolbar a.button.command-insert-flickr-photo, .editor-toolbar a.button.command-insert-flickr-photo:hover {
+    background: transparent url(toolbar.gif) no-repeat scroll 20px 20px;
+    background-position: 0px -22px;
+}
+
+.editor-toolbar a.button.command-insert-flickr-photo:hover {
+    background-position: 0px 0px;
+}
