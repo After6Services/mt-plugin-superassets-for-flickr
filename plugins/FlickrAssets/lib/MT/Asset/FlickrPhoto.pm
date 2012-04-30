@@ -155,7 +155,7 @@ sub largest_size {
 # 
 sub flickr_image_url {
     my ($asset, $size) = @_;
-    $size ||= _size_info($DEFAULT_SIZE)->{img_suffix};
+    $size = _size_info($DEFAULT_SIZE)->{img_suffix} unless defined $size;
 
     return sprintf(
         "http://farm%s.staticflickr.com/%s/%s_%s%s.jpg",
@@ -249,7 +249,7 @@ sub as_html {
 
         $text = sprintf(
             '<img src="%s" alt="%s" width="%s" height="%s" %s>',
-            MT::Util::encode_html( $asset->flickr_image_url($size->{img_suffix}) ),
+            MT::Util::encode_html( $asset->flickr_image_url($param->{size}) ),
             MT::Util::encode_html($asset->label),
             $size->{width},
             $size->{height},
