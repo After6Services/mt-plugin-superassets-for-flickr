@@ -5,6 +5,7 @@ author_name: Arseni Mouchinski
 author_email: arseni@mouchinski.com
 author_link: http://github.com/amouchinski
 doc_link: http://github.com/After6Services/mt-plugin-flickr-assets
+icon: plugin_icon.png
 
 version: 0.6
 schema_version: 0.2
