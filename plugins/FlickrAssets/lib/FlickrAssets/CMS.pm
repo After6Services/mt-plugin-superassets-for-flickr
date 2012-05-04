@@ -204,8 +204,12 @@ sub asset_insert_source {
     my ($cb, $app, $tmpl) = @_;
 
     # enable thumbnail previews for flickr photos in the entry asset manager
-    my $old = '<mt:If tag="AssetType" eq="image">';
-    my $new = '<mt:If tag="AssetType" like="^(image|flickr photo)$">';
+    my $old = '<mt:If tag="AssetType" like="\^\((.+?)\)\$">';
+    my $new;
+    $$tmpl =~ s/$old/<mt:If tag="AssetType" like="^($1|flickr photo)\$">/g;
+
+    $old = '<mt:If tag="AssetType" eq="image">';
+    $new = '<mt:If tag="AssetType" like="^(image|flickr photo)$">';
     $$tmpl =~ s/\Q$old\E/$new/g;
 }
 
