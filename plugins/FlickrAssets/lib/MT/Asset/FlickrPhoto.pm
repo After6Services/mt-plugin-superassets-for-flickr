@@ -207,16 +207,52 @@ sub insert_options {
         @SIZES_EMBED
     ];
 
-    my $selected_size = $asset->best_size_match(width => $blog->image_default_width);
+    my $prefs = $blog->flickr_photo_embed_options;
+    my $prefs_size = _size_info($prefs->{size});
+    my $selected_size;
+
+    if ($prefs_size && exists $sizes->{$prefs_size->{name}}) {
+        $selected_size = $prefs_size->{name};
+    }
+    else {
+        my $width = $prefs_size ? $prefs_size->{width} : $blog->image_default_width;
+        $selected_size = $asset->best_size_match(width => $width);
+    }
     $param->{default_size} = _size_info($selected_size)->{img_suffix};
 
     for (qw(none left center right)) {
-        $param->{"align_$_"} = ($blog->image_default_align || 'none') eq $_ ? 1 : 0;
+        $param->{"align_$_"} = ($prefs->{align} || $blog->image_default_align || 'none') eq $_ ? 1 : 0;
     }
+
+    $param->{link_to_page} = exists $prefs->{link_to_page} ? $prefs->{link_to_page} : 1;
+
+    $param->{can_save_settings} = $app->permissions->can_save_image_defaults ? 1 : 0;
 
     return $app->build_page(
         plugin->load_tmpl('photo_insert_options.tmpl'), $param
     );
+}
+
+sub on_upload {
+    my $asset = shift;
+    my ($param) = @_;
+    my $app = MT->instance;
+    my $blog = $asset->blog;
+
+    $asset->SUPER::on_upload(@_);
+
+    return unless $param->{new_entry};
+
+    if ($param->{save_settings}) {
+        return $app->error("Permission denied saving Flickr settings for blog " . $blog->id)
+            unless $app->permissions->can_save_image_defaults;
+
+        my $options = $blog->flickr_photo_embed_options;
+        $options->{$_} = $param->{$_} for qw(align size link_to_page);
+        $blog->flickr_photo_embed_options($options);
+
+        $blog->save or die $blog->errstr;
+    }
 }
 
 sub as_html {

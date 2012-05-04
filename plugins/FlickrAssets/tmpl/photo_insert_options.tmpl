@@ -58,4 +58,16 @@
     <label for="link_to_page">Link image to its Flickr page</label>
 </mtapp:setting>
 
+<mt:if name="can_save_settings">
+    <mtapp:setting
+        id="save_settings"
+        label="Remember these settings"
+        label_class="no-header"
+        hint=""
+        show_hint="0">
+        <input type="checkbox" name="save_settings" id="save_settings" value="1" />
+        <label for="save_settings">Remember these settings</label>
+    </mtapp:setting>
+</mt:if>
+
 </div>

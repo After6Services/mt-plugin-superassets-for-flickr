@@ -12,6 +12,8 @@ schema_version: 0.2
 
 object_types:
     asset.flickr_photo: MT::Asset::FlickrPhoto
+    blog:
+        flickr_photo_embed_options: hash meta
 
 settings:
     api_key:
