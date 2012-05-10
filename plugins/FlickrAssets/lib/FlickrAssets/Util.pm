@@ -36,25 +36,32 @@ sub init {
 # http://www.flickr.com/photos/amouchinski/7098065151/sizes/l/in/set-72157629499885466/
 # http://www.flickr.com/photos/amouchinski/7098065151/in/photostream/
 # http://www.flickr.com/photos/77525377@N08/7098065151/
+# http://flic.kr/p/bPertD
 #
 sub is_valid_photo_url {
     my $url = shift;
-    return $url && $url =~ m'flickr\.com/photos/[^/]+/[^/]+';
+    return $url && $url =~ m'\s* https?://(?:www\.)? (?: flickr\.com/photos/[^/]+/[^/]+ | flic\.kr/p/[^/]+ )'ix;
 }
 
 sub parse_photo_url {
     my $url = shift;
     my $data;
 
-    return unless $url && $url =~ m'flickr\.com/photos/([^/]+)/([^/]+)(.*)';
+    return unless $url;
 
-    my ($user, $context) = ($1, $3);
-    $data->{photo_id} = $2;
-    $data->{ $user =~ /\d+\@/ ? 'user_nsid' : 'path_alias' } = $user;
+    if ($url =~ m'flickr\.com/photos/([^/]+)/([^/]+)(.*)'i) {
+        my ($user, $context) = ($1, $3);
+        $data->{photo_id} = $2;
+        $data->{ $user =~ /\d+\@/ ? 'user_nsid' : 'path_alias' } = $user;
 
-    if ($context) {
-        $data->{size} = $1 if $context =~ m'sizes/(\w+)';
-        $data->{set_id} = $1 if $context =~ m'in/set-([^/]+)';
+        if ($context) {
+            $data->{size} = $1 if $context =~ m'sizes/(\w+)';
+            $data->{set_id} = $1 if $context =~ m'in/set-([^/]+)';
+        }
+    }
+    elsif ($url =~ m'flic.kr/p/(.*)'i) {
+        require Encode::Base58;
+        $data->{photo_id} = Encode::Base58::decode_base58($1);
     }
 
     return $data;

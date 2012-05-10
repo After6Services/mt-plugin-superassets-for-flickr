@@ -21,8 +21,12 @@ sub flickr_photo_create {
     if ($params{photo_url}) {
         if (is_valid_photo_url($params{photo_url})) {
             $photo_url_info = parse_photo_url($params{photo_url});
+
             if ($photo_url_info && $photo_url_info->{photo_id}) {
-                if ( my ($p) = MT::Asset::FlickrPhoto->search_by_meta('flickr_photo_id', $photo_url_info->{photo_id}) ) {
+                if ( my ($p) = MT::Asset::FlickrPhoto->search_by_meta(
+                        'flickr_photo_id', $photo_url_info->{photo_id}
+                     )
+                   ) {
                     $params{original_asset_id} = $p->id;
                     $errors{photo_already_exists} = 1;
                 }
