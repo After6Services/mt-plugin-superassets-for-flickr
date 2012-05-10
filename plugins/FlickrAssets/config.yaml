@@ -7,7 +7,7 @@ author_link: http://github.com/amouchinski
 doc_link: http://github.com/After6Services/mt-plugin-flickr-assets
 icon: plugin_icon.png
 
-version: 0.7
+version: 0.8
 schema_version: 0.2
 
 object_types:
