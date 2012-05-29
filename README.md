@@ -50,8 +50,8 @@ The plugin will find the best-fitting image version available for a photo in cas
 
 ## Flickr photo sizes
 
-    Name         | Suffix | Size, px.
-    ---------------------------------
+    Name         | Suffix | Size, px
+    -------------+--------+---------
     Square       | s      | 75       
     Large Square | q      | 150      
     Thumbnail    | t      | 100      
