@@ -6,7 +6,7 @@ Flickr Assets is a Movable Type plugin that allows to import and use Flickr phot
 
 ## Overview
 
-Flickr photos work just like other Movable Type assets and can be accessed via tags *Asset*, *Assets*, *EntryAssets* and *PageAssets*:
+Flickr photos work just like other Movable Type's assets and can be accessed via tags *Asset*, *Assets*, *EntryAssets* and *PageAssets*:
 
     <mt:EntryAssets>
     <mt:if tag="AssetType" eq="flickr_photo">
@@ -20,7 +20,7 @@ Flickr photos work just like other Movable Type assets and can be accessed via t
     </mt:if>
     </mt:EntryAssets>
 
-Photos can be filtered by class name:
+Photos can also be filtered by class name:
 
     <mt:Assets class="flickr_photo" lastn="1">
     ...
@@ -38,7 +38,7 @@ There are a few extra asset properties accessible in templates:
 
 ## Thumbnails
 
-Each photo is typically available in multiple sizes that are crated and managed by the Flickr service, so this plugin does not handle or scale images internally.
+Each photo is typically available in multiple sizes that are created and managed by the Flickr service, so this plugin does not handle or scale images internally.
 
 Template designers can use standard Movable Type's tag *AssetThumbnailURL* to get image URLs as usual. In addition to *width* and *height* attributes, the plugin allows to set a Flickr image version explicitly via the *size* attribute:
 
@@ -50,16 +50,16 @@ The plugin will find the best-fitting image version available for a photo in cas
 
 ## Flickr photo sizes
 
-| Name         | Suffix | Size, px. |
-| Square       | s      | 75        |
-| Large Square | q      | 150       |
-| Thumbnail    | t      | 100       |
-| Small        | m      | 240       |
-| Small 320    | n      | 320       |
-| Medium       | ''     | 500       |
-| Medium 640   | z      | 640       |
-| Medium 800   | c      | 800       |
-| Large        | b      | 1024      |
+    | Name         | Suffix | Size, px. |
+    | Square       | s      | 75        |
+    | Large Square | q      | 150       |
+    | Thumbnail    | t      | 100       |
+    | Small        | m      | 240       |
+    | Small 320    | n      | 320       |
+    | Medium       | ''     | 500       |
+    | Medium 640   | z      | 640       |
+    | Medium 800   | c      | 800       |
+    | Large        | b      | 1024      |
 
 See [this doc](http://www.flickr.com/services/api/misc.urls.html) for more details.
 
