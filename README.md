@@ -50,16 +50,17 @@ The plugin will find the best-fitting image version available for a photo in cas
 
 ## Flickr photo sizes
 
-    | Name         | Suffix | Size, px. |
-    | Square       | s      | 75        |
-    | Large Square | q      | 150       |
-    | Thumbnail    | t      | 100       |
-    | Small        | m      | 240       |
-    | Small 320    | n      | 320       |
-    | Medium       | ''     | 500       |
-    | Medium 640   | z      | 640       |
-    | Medium 800   | c      | 800       |
-    | Large        | b      | 1024      |
+    Name         | Suffix | Size, px.
+    ---------------------------------
+    Square       | s      | 75       
+    Large Square | q      | 150      
+    Thumbnail    | t      | 100      
+    Small        | m      | 240      
+    Small 320    | n      | 320      
+    Medium       | ''     | 500      
+    Medium 640   | z      | 640      
+    Medium 800   | c      | 800      
+    Large        | b      | 1024     
 
 See [this doc](http://www.flickr.com/services/api/misc.urls.html) for more details.
 
