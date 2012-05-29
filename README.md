@@ -1,10 +1,31 @@
 # Flickr Assets
 
-Flickr Assets is a Movable Type plugin that allows to import and use Flickr photos as native assets.
+Flickr Assets is a Movable Type plugin that allows users to import and use Flickr photos as image assets in the Movable Type Asset Manager.  It is part of the SuperAssets series of plugins from After6 Services LLC.
 
-# Template Tags
+# Installation
 
-## Overview
+After downloading and uncompressing this package:
+
+1. Upload the entire FlickrAssets directory within the plugins directory of this distribution to the corresponding plugins directory within the Movable Type installation directory.
+    * UNIX example:
+        * Copy mt-plugin-flickr-assets/plugins/FlickrAssets/ into /var/wwww/cgi-bin/mt/plugins/.
+    * Windows example:
+        * Copy mt-plugin-flickr-assets/plugins/FlickrAssets/ into C:\webroot\mt-cgi\plugins\ .
+2. Upload the entire FlickrAssets directory within the mt-static directory of this distribution to the corresponding mt-static/plugins directory that your instance of Movable Type is configured to use.  Refer to the StaticWebPath configuration directive within your mt-config.cgi file for the location of the mt-static directory.
+    * UNIX example: If the StaticWebPath configuration directive in mt-config.cgi is: **StaticWebPath  /var/www/html/mt-static/**,
+        * Copy mt-plugin-flickr-assets/mt-static/plugins/FlickrAssets/ into ~/var/www/html/mt-static/plugins/.
+    * Windows example: If the StaticWebPath configuration directive in mt-config.cgi is: **StaticWebPath D:/htdocs/mt-static/**,
+        * Copy mt-plugin-flickr-assets/mt-static/plugins/FlickrAssets/ into D:/htdocs/mt-static/.
+
+# Configuration
+
+No configuration is required.
+
+# Usage
+
+## Template Tags
+
+### Overview
 
 Flickr photos work just like other Movable Type's assets and can be accessed via tags *Asset*, *Assets*, *EntryAssets* and *PageAssets*:
 
@@ -26,7 +47,7 @@ Photos can also be filtered by class name:
     ...
     </mt:Assets>
 
-## Properties
+### Properties
 
 There are a few extra asset properties accessible in templates:
 
@@ -36,7 +57,7 @@ There are a few extra asset properties accessible in templates:
 
     <mt:AssetProperty property="flickr_photo_id">
 
-## Thumbnails
+### Thumbnails
 
 Each photo is typically available in multiple sizes that are created and managed by the Flickr service, so this plugin does not handle or scale images internally.
 
@@ -48,7 +69,7 @@ Template designers can use standard Movable Type's tag *AssetThumbnailURL* to ge
 
 The plugin will find the best-fitting image version available for a photo in cases when requested image with exact dimensions or size name doesn't exist.
 
-## Flickr photo sizes
+### Flickr photo sizes
 
     Name         | Suffix | Size, px
     -------------+--------+---------
@@ -62,20 +83,38 @@ The plugin will find the best-fitting image version available for a photo in cas
     Medium 800   | c      | 800      
     Large        | b      | 1024     
 
-See [this doc](http://www.flickr.com/services/api/misc.urls.html) for more details.
+See the [Flickr Services](http://www.flickr.com/services/api/misc.urls.html) information page in the [Flickr App Garden](http://www.flickr.com/services/) for more information about photo source URLs, size suffixes, webpage URLs, and a number of other useful details about Flickr.
 
 Template tag *AssetThumbnailURL* and tags provided by this plugin accept both name and letter suffix as *size* attribute.
 
 The default size is *Medium 640*.
 
-## Tag *FlickrPhotoWidth*
+### Tag *FlickrPhotoWidth*
 
 Returns width of a photo asset in template context. Accepts attributes *size* or *width* and/or *height* just like the *AssetThumbnailURL* tag.
 
-## Tag *FlickrPhotoHeight*
-
+### Tag *FlickrPhotoHeight*
+2
 Returns height of a photo asset in template context. Accepts attributes *size* or *width* and/or *height* just like the *AssetThumbnailURL* tag.
 
-## Tag *FlickrPhotoPage*
+### Tag *FlickrPhotoPage*
 
 Returns URL of the Flickr page for a photo asset in template context. Accepts attributes *size* or *width* and/or *height* just like the *AssetThumbnailURL* tag.
+
+# Support
+
+This plugin has not been tested with any version of Movable Type prior to Movable Type 4.38.
+
+Although After6 Services LLC has developed this plugin, After6 only provides support for this plugin as part of a Movable Type support agreement that references this plugin by name.
+
+# License
+
+This plugin is licensed under The BSD 2-Clause License, http://www.opensource.org/licenses/bsd-license.php.  See LICENSE.md for the exact license.
+
+# Authorship
+
+Flickr Assets was originally written by Arseni Mouchinski with help from Dave Aiello and Jeremy King.
+
+# Copyright
+
+Copyright &copy; 2012, After6 Services LLC.  All Rights Reserved.
