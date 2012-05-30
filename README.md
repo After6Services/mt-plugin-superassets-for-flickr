@@ -13,7 +13,7 @@ After downloading and uncompressing this package:
         * Copy mt-plugin-flickr-assets/plugins/FlickrAssets/ into C:\webroot\mt-cgi\plugins\ .
 2. Upload the entire FlickrAssets directory within the mt-static directory of this distribution to the corresponding mt-static/plugins directory that your instance of Movable Type is configured to use.  Refer to the StaticWebPath configuration directive within your mt-config.cgi file for the location of the mt-static directory.
     * UNIX example: If the StaticWebPath configuration directive in mt-config.cgi is: **StaticWebPath  /var/www/html/mt-static/**,
-        * Copy mt-plugin-flickr-assets/mt-static/plugins/FlickrAssets/ into ~/var/www/html/mt-static/plugins/.
+        * Copy mt-plugin-flickr-assets/mt-static/plugins/FlickrAssets/ into /var/www/html/mt-static/plugins/.
     * Windows example: If the StaticWebPath configuration directive in mt-config.cgi is: **StaticWebPath D:/htdocs/mt-static/**,
         * Copy mt-plugin-flickr-assets/mt-static/plugins/FlickrAssets/ into D:/htdocs/mt-static/.
 
@@ -118,3 +118,11 @@ Flickr Assets was originally written by Arseni Mouchinski with help from Dave Ai
 # Copyright
 
 Copyright &copy; 2012, After6 Services LLC.  All Rights Reserved.
+
+Flickr is a registered trademark of Yahoo! Inc.
+
+SuperAssets is a trademark of After6 Services LLC.
+
+Movable Type is a registered trademark of Six Apart Limited.
+
+Trademarks, product names, company names, or logos used in connection with this repository are the property of their respective owners and references do not imply any endorsement, sponsorship, or affiliation with After6 Services LLC unless otherwise specified.
