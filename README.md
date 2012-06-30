@@ -53,7 +53,7 @@ Flickr photos work just like other Movable Type's assets and can be accessed via
 
 Photos can also be filtered by class name:
 
-    <mt:Assets class="flickr_photo" lastn="1">
+    <mt:Assets type="flickr_photo" lastn="1">
     ...
     </mt:Assets>
 
