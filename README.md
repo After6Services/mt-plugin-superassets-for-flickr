@@ -40,7 +40,7 @@ After completely installing Flickr Assets:
 Flickr photos work just like other Movable Type's assets and can be accessed via tags *Asset*, *Assets*, *EntryAssets* and *PageAssets*:
 
     <mt:EntryAssets>
-    <mt:if tag="AssetType" eq="flickr_photo">
+    <mt:if tag="AssetType" eq="flickr photo">
         <div>
         <strong><mt:AssetLabel escape="html"></strong>
         <p><mt:AssetDescription escape="html"></p>
@@ -53,7 +53,7 @@ Flickr photos work just like other Movable Type's assets and can be accessed via
 
 Photos can also be filtered by class name:
 
-    <mt:Assets type="flickr_photo" lastn="1">
+    <mt:Assets type="flickr photo" lastn="1">
     ...
     </mt:Assets>
 
