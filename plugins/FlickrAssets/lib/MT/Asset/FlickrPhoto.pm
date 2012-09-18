@@ -115,6 +115,7 @@ sub best_size_match {
     $h ||= $w;
 
     my $photo_sizes = $asset->flickr_photo_sizes;
+    delete $photo_sizes->{Original} if exists $photo_sizes->{Original};
 
     if ($photo_sizes && keys %$photo_sizes) {
         my @sizes_fit = grep {
