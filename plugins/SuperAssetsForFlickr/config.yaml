@@ -1,0 +1,54 @@
+name: SuperAssets for Flickr
+id: superassetsforflickr
+description: Import and use Flickr photos as native MT assets.
+author_name: After6 Services LLC
+author_email: customer.service@after6services.com
+author_link: http://www.after6services.com/plugins/
+doc_link: http://github.com/After6Services/mt-plugin-superassets-for-flickr
+icon: plugin_icon.png
+
+version: 1.0
+schema_version: 0.2
+
+object_types:
+    asset.flickr_photo: MT::Asset::FlickrPhoto
+    blog:
+        flickr_photo_embed_options: hash meta
+
+settings:
+    api_key:
+        scope: system
+        default: ""
+    api_secret:
+        scope: system
+        default: ""
+
+system_config_template: system_config.tmpl
+
+init: $SuperAssetsForFlickr::SuperAssetsForFlickr::Util::init
+ 
+applications:
+    cms:
+        menus:
+            create:flickr_photo:
+                label: Flickr Photo
+                order: 310
+                dialog: flickr_photo_create
+                view: blog
+                permission: upload
+
+        methods:
+            flickr_photo_create: $SuperAssetsForFlickr::SuperAssetsForFlickr::CMS::flickr_photo_create
+
+        callbacks:
+            template_source.edit_asset: $SuperAssetsForFlickr::SuperAssetsForFlickr::CMS::edit_asset_source
+            template_source.asset_list: $SuperAssetsForFlickr::SuperAssetsForFlickr::CMS::asset_list_source
+            template_source.asset_insert: $SuperAssetsForFlickr::SuperAssetsForFlickr::CMS::asset_insert_source
+            template_source.archetype_editor: $SuperAssetsForFlickr::SuperAssetsForFlickr::CMS::editor_source
+            template_param.edit_entry: $SuperAssetsForFlickr::SuperAssetsForFlickr::CMS::edit_entry_param
+
+tags:
+    function:
+        FlickrPhotoPage: $SuperAssetsForFlickr::SuperAssetsForFlickr::Tags::_hdlr_flickr_photo_page
+        FlickrPhotoWidth: $SuperAssetsForFlickr::SuperAssetsForFlickr::Tags::_hdlr_flickr_photo_width
+        FlickrPhotoHeight: $SuperAssetsForFlickr::SuperAssetsForFlickr::Tags::_hdlr_flickr_photo_height

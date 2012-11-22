@@ -7,7 +7,7 @@ use base 'MT::Asset';
 
 require MT;
 require MT::Util;
-use FlickrAssets::Util qw(:all);
+use SuperAssetsForFlickr::Util qw(:all);
 
 __PACKAGE__->install_properties({
     class_type  => 'flickr_photo',

@@ -1,32 +1,42 @@
-# Flickr Assets
+# SuperAssets for Flickr
 
-Flickr Assets is a Movable Type plugin that allows users to import and use Flickr photos as image assets in the Movable Type Asset Manager.  It is part of the SuperAssets series of plugins from After6 Services LLC.
+SuperAssets for Flickr is a Movable Type plugin that allows users to import and use Flickr photos as image assets in the Movable Type Asset Manager.  It is part of the SuperAssets series of plugins from After6 Services LLC.
+
+# Additional Perl Module Requirements
+
+In addition to the [System Requirements](http://www.movabletype.org/documentation/system-requirements.html) for Movable Type, SuperAssets for Flickr requires the following Perl modules:
+
+* [Encode::Base58](http://search.cpan.org/~miyagawa/Encode-Base58-0.01/lib/Encode/Base58.pm)
+* [Flickr::API2](http://search.cpan.org/dist/Flickr-API2/)
+* [LWP::UserAgent](http://search.cpan.org/~gaas/libwww-perl-6.04/lib/LWP/UserAgent.pm)
 
 # Installation
 
+Install the Perl modules discussed above using installation procedures for [CPAN](http://www.cpan.org), [CPANminus](https://raw.github.com/miyagawa/cpanminus/master/cpanm), [PPM](http://code.activestate.com/ppm/), or the packaging system that is supported by your operating system.
+
 After downloading and uncompressing this package:
 
-1. Upload the entire FlickrAssets directory within the plugins directory of this distribution to the corresponding plugins directory within the Movable Type installation directory.
+1. Upload the entire SuperAssetsForFlickr directory within the plugins directory of this distribution to the corresponding plugins directory within the Movable Type installation directory.
     * UNIX example:
-        * Copy mt-plugin-flickr-assets/plugins/FlickrAssets/ into /var/wwww/cgi-bin/mt/plugins/.
+        * Copy mt-plugin-superassets-for-flickr/plugins/SuperAssetsForFlickr/ into /var/wwww/cgi-bin/mt/plugins/.
     * Windows example:
-        * Copy mt-plugin-flickr-assets/plugins/FlickrAssets/ into C:\webroot\mt-cgi\plugins\ .
-2. Upload the entire FlickrAssets directory within the mt-static directory of this distribution to the corresponding mt-static/plugins directory that your instance of Movable Type is configured to use.  Refer to the StaticWebPath configuration directive within your mt-config.cgi file for the location of the mt-static directory.
+        * Copy mt-plugin-superassets-for-flickr/plugins/SuperAssetsForFlickr/ into C:\webroot\mt-cgi\plugins\ .
+2. Upload the entire SuperAssetsForFlickr directory within the mt-static directory of this distribution to the corresponding mt-static/plugins directory that your instance of Movable Type is configured to use.  Refer to the StaticWebPath configuration directive within your mt-config.cgi file for the location of the mt-static directory.
     * UNIX example: If the StaticWebPath configuration directive in mt-config.cgi is: **StaticWebPath  /var/www/html/mt-static/**,
-        * Copy mt-plugin-flickr-assets/mt-static/plugins/FlickrAssets/ into /var/www/html/mt-static/plugins/.
+        * Copy mt-plugin-superassets-for-flickr/mt-static/plugins/SuperAssetsForFlickr/ into /var/www/html/mt-static/plugins/.
     * Windows example: If the StaticWebPath configuration directive in mt-config.cgi is: **StaticWebPath D:/htdocs/mt-static/**,
-        * Copy mt-plugin-flickr-assets/mt-static/plugins/FlickrAssets/ into D:/htdocs/mt-static/.
+        * Copy mt-plugin-superassets-for-flickr/mt-static/plugins/SuperAssetsForFlickr/ into D:/htdocs/mt-static/.
 
 # Configuration
 
-Flickr Assets requires a Flickr API key in order to operate on images stored on Flickr.com.
+SuperAssets for Flickr requires a Flickr API key in order to operate on images stored on Flickr.com.
 
-After completely installing Flickr Assets:
+After completely installing SuperAssets for Flickr:
 
 1. Obtain a Flickr API key for use with this Movable Type instance by following the instructions at [http://www.flickr.com/services/api/keys/](http://www.flickr.com/services/api/keys/).
 2. Visit the System Plugin Settings page at ~/mt/mt.cgi?__mode=cfg_plugins for your Movable Type instance.
-3. Click on the plugin name "Flickr Assets" in the "Individual Plugins" section.
-4. Click on the link labeled "Settings" to expose the Flickr Assets plugin settings pane.
+3. Click on the plugin name "SuperAssets for Flickr" in the "Individual Plugins" section.
+4. Click on the link labeled "Settings" to expose the SuperAssets for Flickr plugin settings pane.
 5. Enter the API Key that you received from Flickr in the "API Key" field.
 6. Enter the API Secret that you received from Flickr in the "API Secret" field.  The API Secret should be kept confidential and not shared with anyone who is not a System Administrator for this Movable Type instance.
 7. Click the "Save Changes" button.
@@ -104,7 +114,7 @@ The default size is *Medium 640*.
 Returns width of a photo asset in template context. Accepts attributes *size* or *width* and/or *height* just like the *AssetThumbnailURL* tag.
 
 ### Tag *FlickrPhotoHeight*
-2
+
 Returns height of a photo asset in template context. Accepts attributes *size* or *width* and/or *height* just like the *AssetThumbnailURL* tag.
 
 ### Tag *FlickrPhotoPage*
@@ -119,11 +129,15 @@ Although After6 Services LLC has developed this plugin, After6 only provides sup
 
 # License
 
-This plugin is licensed under The BSD 2-Clause License, http://www.opensource.org/licenses/bsd-license.php.  See LICENSE.md for the exact license.
+This plugin is licensed under The MIT License, http://www.opensource.org/licenses/mit-license.php.  See LICENSE.md for the exact license.
 
 # Authorship
 
-Flickr Assets was originally written by Arseni Mouchinski with help from Dave Aiello and Jeremy King.
+SuperAssets for Flickr was originally written by Arseni Mouchinski with help from Dave Aiello and Jeremy King.
+
+# Credits
+
+SuperAssets for Flickr was originally developed for deployment within the [Government of British Columbia Newsroom](http://www.newsroom.gov.bc.ca/).  After6 Services LLC thanks the Government of British Columbia's Ministry of Citizens' Services and Open Government for its support of and involvement in the initial development of this plugin.
 
 # Copyright
 

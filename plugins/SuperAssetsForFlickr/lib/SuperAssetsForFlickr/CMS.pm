@@ -1,10 +1,10 @@
-package FlickrAssets::CMS;
+package SuperAssetsForFlickr::CMS;
 
 use strict;
 use warnings;
 
 require MT::Asset::FlickrPhoto;
-use FlickrAssets::Util qw(:all);
+use SuperAssetsForFlickr::Util qw(:all);
 
 sub flickr_photo_create {
     my $app = shift;
@@ -237,7 +237,7 @@ sub editor_source {
     # adding some css
     $$tmpl .= q{
         <mt:setvarblock name="html_head" append="1">
-        <link rel="stylesheet" type="text/css" href="<mt:var name="static_uri">plugins/FlickrAssets/editor.css" />
+        <link rel="stylesheet" type="text/css" href="<mt:var name="static_uri">plugins/SuperAssetsForFlickr/editor.css" />
         </mt:setvarblock>
     };
 

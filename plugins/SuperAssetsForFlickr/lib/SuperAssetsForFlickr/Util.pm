@@ -1,4 +1,4 @@
-package FlickrAssets::Util;
+package SuperAssetsForFlickr::Util;
 
 use strict;
 use warnings;
@@ -68,7 +68,7 @@ sub parse_photo_url {
 }
 
 sub plugin {
-    return MT->component("FlickrAssets");
+    return MT->component("SuperAssetsForFlickr");
 }
 
 sub is_valid_plugin_config {

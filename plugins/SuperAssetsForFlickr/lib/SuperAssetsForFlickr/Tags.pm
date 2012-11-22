@@ -1,4 +1,4 @@
-package FlickrAssets::Tags;
+package SuperAssetsForFlickr::Tags;
 
 use strict;
 use warnings;
