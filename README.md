@@ -123,7 +123,7 @@ Returns URL of the Flickr page for a photo asset in template context. Accepts at
 
 # Support
 
-This plugin has not been tested with any version of Movable Type prior to Movable Type 4.38.
+This plugin has not been tested with any version of Movable Type prior to Movable Type 4.38.  It is known to work with Movable Type 5 up to at least 5.14.
 
 Although After6 Services LLC has developed this plugin, After6 only provides support for this plugin as part of a Movable Type support agreement that references this plugin by name.
 
@@ -134,10 +134,6 @@ This plugin is licensed under The MIT License, http://www.opensource.org/license
 # Authorship
 
 SuperAssets for Flickr was originally written by Arseni Mouchinski with help from Dave Aiello and Jeremy King.
-
-# Credits
-
-SuperAssets for Flickr was originally developed for deployment within the [Government of British Columbia Newsroom](http://www.newsroom.gov.bc.ca/).  After6 Services LLC thanks the Government of British Columbia's Ministry of Citizens' Services and Open Government for its support of and involvement in the initial development of this plugin.
 
 # Copyright
 
