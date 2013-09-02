@@ -126,12 +126,21 @@ TC.attachLoadEvent(function() {
             accesskey="a"
             class="primary-button"
             title="Add (a)">Add</button>
-        <button
-            onclick="closeDialog(); return false"
-            type="submit"
-            class="cancel"
-            accesskey="x"
-            title="Cancel (x)">Cancel</button>
+        <mt:If tag="Version" like="/^(5|6)/">
+            <button
+                onclick="parent.jQuery.fn.mtDialog.close(); return false"
+                type="submit"
+                class="cancel"
+                accesskey="x"
+                title="Cancel (x)">Cancel</button>
+        <mt:Else>            
+            <button
+                onclick="closeDialog(); return false"
+                type="submit"
+                class="cancel"
+                accesskey="x"
+                title="Cancel (x)">Cancel</button>
+        </mt:If>
         </div>
     </div>
 </form>
