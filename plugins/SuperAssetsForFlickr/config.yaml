@@ -7,7 +7,7 @@ author_link: http://www.after6services.com/plugins/
 doc_link: http://github.com/After6Services/mt-plugin-superassets-for-flickr
 icon: plugin_icon.png
 
-version: 1.01
+version: 1.02
 schema_version: 0.2
 
 object_types:
