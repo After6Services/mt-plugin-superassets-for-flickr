@@ -13,7 +13,7 @@ In addition to the [System Requirements](http://www.movabletype.org/documentatio
 
 The URLs for these Perl modules represent the latest versions of these modules at the time they were added as requirements.  Use the latest version available for the build of Perl that you are using, unless you are otherwise directed in this README document.
 
-As stated above, the Perl module Flickr::API2 Version 2.08 or higher is required for successful use of this plugin.  If a version of Flickr::API2 is used that is less than 2.08, the plugin will not be able to use the Flickr API over the SSL transport mechanism.
+As stated above, the Perl module Flickr::API2 Version 2.08 or higher is required for successful use of this plugin.  If a version of Flickr::API2 is used that is less than 2.08, *the plugin will not function* because it will not be able to use the Flickr API over the SSL transport mechanism.
 
 # Installation
 
@@ -38,7 +38,7 @@ SuperAssets for Flickr requires a Flickr API key in order to operate on images s
 
 After completely installing SuperAssets for Flickr:
 
-1. Obtain a Flickr API key for use with this Movable Type instance by following the instructions at [http://www.flickr.com/services/api/keys/](http://www.flickr.com/services/api/keys/).
+1. Obtain a Flickr API key for use with this Movable Type instance by following the instructions at [https://www.flickr.com/services/api/keys/](https://www.flickr.com/services/api/keys/).
 2. Visit the System Plugin Settings page at ~/mt/mt.cgi?__mode=cfg_plugins for your Movable Type instance.
 3. Click on the plugin name "SuperAssets for Flickr" in the "Individual Plugins" section.
 4. Click on the link labeled "Settings" to expose the SuperAssets for Flickr plugin settings pane.
