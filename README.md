@@ -7,8 +7,13 @@ SuperAssets for Flickr is a Movable Type plugin that allows users to import and 
 In addition to the [System Requirements](http://www.movabletype.org/documentation/system-requirements.html) for Movable Type, SuperAssets for Flickr requires the following Perl modules:
 
 * [Encode::Base58](http://search.cpan.org/~miyagawa/Encode-Base58-0.01/lib/Encode/Base58.pm)
-* [Flickr::API2](http://search.cpan.org/dist/Flickr-API2/)
+* [Flickr::API2](http://search.cpan.org/dist/Flickr-API2/) version 2.08 or higher.
 * [LWP::UserAgent](http://search.cpan.org/~gaas/libwww-perl-6.04/lib/LWP/UserAgent.pm)
+* [LWP::Protocol::https](http://search.cpan.org/~mschilli/LWP-Protocol-https-6.06/)
+
+The URLs for these Perl modules represent the latest versions of these modules at the time they were added as requirements.  Use the latest version available for the build of Perl that you are using, unless you are otherwise directed in this README document.
+
+As stated above, the Perl module Flickr::API2 Version 2.08 or higher is required for successful use of this plugin.  If a version of Flickr::API2 is used that is less than 2.08, *the plugin will not function* because it will not be able to use the Flickr API over the SSL transport mechanism.
 
 # Installation
 
@@ -33,7 +38,7 @@ SuperAssets for Flickr requires a Flickr API key in order to operate on images s
 
 After completely installing SuperAssets for Flickr:
 
-1. Obtain a Flickr API key for use with this Movable Type instance by following the instructions at [http://www.flickr.com/services/api/keys/](http://www.flickr.com/services/api/keys/).
+1. Obtain a Flickr API key for use with this Movable Type instance by following the instructions at [https://www.flickr.com/services/api/keys/](https://www.flickr.com/services/api/keys/).
 2. Visit the System Plugin Settings page at ~/mt/mt.cgi?__mode=cfg_plugins for your Movable Type instance.
 3. Click on the plugin name "SuperAssets for Flickr" in the "Individual Plugins" section.
 4. Click on the link labeled "Settings" to expose the SuperAssets for Flickr plugin settings pane.
@@ -123,7 +128,7 @@ Returns URL of the Flickr page for a photo asset in template context. Accepts at
 
 # Support
 
-This plugin has not been tested with any version of Movable Type prior to Movable Type 4.38.  It is known to work with Movable Type 5 up to at least 5.14.
+This plugin has not been tested with any version of Movable Type prior to Movable Type 4.38.  It is known to work with all released versions of Movable Type 5 and 6, up to 6.0.3.
 
 Although After6 Services LLC has developed this plugin, After6 only provides support for this plugin as part of a Movable Type support agreement that references this plugin by name.
 
@@ -133,11 +138,11 @@ This plugin is licensed under The MIT License, http://www.opensource.org/license
 
 # Authorship
 
-SuperAssets for Flickr was originally written by Arseni Mouchinski with help from Dave Aiello and Jeremy King.
+SuperAssets for Flickr was originally written by Arseni Mouchinski with help from Dave Aiello and Jeremy King.  SuperAssets for Flickr is maintained by Dave Aiello.
 
 # Copyright
 
-Copyright &copy; 2012, After6 Services LLC.  All Rights Reserved.
+Copyright &copy; 2012-2014, After6 Services LLC.  All Rights Reserved.
 
 Flickr is a registered trademark of Yahoo! Inc.
 
